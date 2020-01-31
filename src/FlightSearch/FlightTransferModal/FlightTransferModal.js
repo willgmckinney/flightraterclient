@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Form, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import APIURL from '../../helpers/environment';
 
 
 const FlightTransferModal = (props) => {
@@ -16,7 +17,7 @@ const FlightTransferModal = (props) => {
     
         const RatingCreate = (e) => {
             e.preventDefault();
-            fetch('http://localhost:8000/rating/create', {
+            fetch(`${APIURL}/rating/create`, {
                 method: 'POST',
                 body: JSON.stringify({airline: Airline, date: departureScheduledTime, rating: editRating, reason: editReason}),
                 headers: new Headers({

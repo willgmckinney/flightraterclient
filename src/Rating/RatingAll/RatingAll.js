@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {Card, CardBody, CardTitle, CardSubtitle, CardText, Row} from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 const AllReviews = () => {
     const [allcards, setAllcards] = useState([]);
 
 
     useEffect(() => {
-        fetch("http://localhost:8000/user/allposts", {
+        fetch(`${APIURL}/user/allposts`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

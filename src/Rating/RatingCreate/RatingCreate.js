@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Form, Input, Label, Button, Container, Row} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import APIURL from '../../helpers/environment';
 
 const RatingCreate = (props) => {
     const [airline, setAirline] =useState('');
@@ -11,7 +12,7 @@ const RatingCreate = (props) => {
     
     const submitForm = (e) => {
         e.preventDefault();
-        fetch('http://localhost:8000/rating/create', {
+        fetch(`${APIURL}/rating/create`, {
             method: 'POST',
             body: JSON.stringify({airline: airline, date: date, rating: rating, reason: reason}),
             headers: new Headers({

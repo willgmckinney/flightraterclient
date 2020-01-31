@@ -3,6 +3,7 @@ import RatingCreate from './RatingCreate/RatingCreate';
 import RatingCards from './RatingCards/RatingCards';
 import RatingEdit from './RatingEdit/RatingEdit';
 import './Rating.css';
+import APIURL from '../helpers/environment';
 
 const Rating = (props) => {
 
@@ -24,7 +25,7 @@ const Rating = (props) => {
     
 
     const Refresh = () => {
-        fetch("http://localhost:8000/rating/allposts", {
+        fetch(`${APIURL}/rating/allposts`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

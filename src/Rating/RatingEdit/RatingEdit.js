@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Form, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import APIURL from '../../helpers/environment';
 
 const RatingEdit = (props) => {
     const [editAirline, setEditAirline] = useState(props.reviewToUpdate.airline);
@@ -10,7 +11,7 @@ const RatingEdit = (props) => {
 
     const RatingUpdate = (event, rating) => {
         event.preventDefault();
-        fetch(`http://localhost:8000/rating/update/${props.reviewToUpdate.id}`, {
+        fetch(`${APIURL}/rating/update/${props.reviewToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({airline: editAirline, date: editDate, rating: editRating, reason: editReason}),
             headers: new Headers ({

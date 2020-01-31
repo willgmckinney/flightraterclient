@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Form, Input, Button, Label, Card, CardBody, CardTitle, CardText, } from 'reactstrap';
 import FlightTransferModal from './FlightTransferModal/FlightTransferModal';
+import APIURL from '../helpers/environment';
 
 const FlightSearch = (props) => {
 
@@ -27,7 +28,7 @@ const FlightSearch = (props) => {
 
     const searchFlights = (e) => {
         e.preventDefault()
-        fetch("http://localhost:8000/flight/myflight", {
+        fetch(`${APIURL}/flight/myflight`, {
             method: 'POST',
             body: JSON.stringify({airline: name, departureAirport: code, departureScheduledTime: datetimestring}),
             headers: new Headers ({

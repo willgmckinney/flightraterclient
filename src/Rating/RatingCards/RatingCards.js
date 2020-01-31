@@ -1,11 +1,12 @@
 import React from 'react';
 import {Card, Container, Row, Button, CardBody, CardSubtitle, CardText, CardTitle} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import APIURL from '../../helpers/environment';
 
 const RatingCards = (props) => {
     
     const deleteReview = (cardData) => {
-        fetch(`http://localhost:8000/rating/delete/${cardData.id}`, {
+        fetch(`${APIURL}/rating/delete/${cardData.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',
