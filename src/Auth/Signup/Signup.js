@@ -27,11 +27,11 @@ const Signup = (props) => {
                <Form onSubmit={submitForm}>
                     <h1>Sign Up</h1>
                     <Label>Name</Label>
-                    <Input onChange={e => setFullname(e.target.value)} name="fullname" value={fullname}/>
+                    <Input onChange={e => setFullname(e.target.value)} name="fullname" value={fullname} placeholder="ex: George Minno"/>
                     <Label>Username</Label>
-                    <Input onChange={e => setUsername(e.target.value)} name="username" value={username}/>
+                    <Input onChange={e => setUsername(e.target.value)} name="username" value={username} placeholder="Needs one number"/>
                     <Label>Password</Label>
-                    <Input onChange={e => setPassword(e.target.value)} name="password" value={password}/>
+                    <Input onChange={e => setPassword(e.target.value)} name="password" value={password} type='password' placeholder="Needs one number"/>
                     <br/>
                     <Button type="submit">Submit</Button>
                 </Form>

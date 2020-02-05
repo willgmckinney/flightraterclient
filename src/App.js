@@ -31,7 +31,7 @@ function App() {
   }
 
   const introText = () => {
-    return (sessionToken === localStorage.getItem('token') ? null : <h2>Thank you for visiting the page! This site is designed to give a voice back to flight passengers that want to enjoy their flights without having hidden fees or last minute delays</h2>)
+    return (sessionToken === localStorage.getItem('token') ? null : (<div><h2>Thank you for visiting the page! This site is designed to give a voice back to flight passengers that want to enjoy their flights without having hidden fees or last minute delays</h2> <br></br> <br></br></div>))
   }
 
   return (

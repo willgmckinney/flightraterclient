@@ -59,8 +59,11 @@ const FlightTransferModal = (props) => {
                 <Label>{flightiataNumber}</Label>
                 <br></br>
                 <b><Label>Rating</Label></b>
+                <br></br>
                 <StarRatingComponent name="rate2" starCount={5} value={editRating} onStarClick={e => setEditRating(e)}/>
+                <br></br>
                 <b><Label>Reason</Label></b>
+                <br></br>
                 <Input onChange={e => setEditReason(e.target.value)} value={editReason}/>
                 <br/>
                 <Button type="submit">Rate It!</Button>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import {Form, Input, Button, Label, Card, CardBody, CardTitle, CardText, } from 'reactstrap';
+import {Form, Input, Button, Label, Card, CardBody, CardTitle, CardText, Container, Row, Col } from 'reactstrap';
 import FlightTransferModal from './FlightTransferModal/FlightTransferModal';
 import APIURL from '../helpers/environment';
+import style from './FlightSearch.css';
 
 const FlightSearch = (props) => {
 
@@ -48,7 +49,7 @@ const FlightSearch = (props) => {
             return(
                 <Card className='cardStyle' style={{margin: '2.5em'}}>
                     <CardBody key={index}>
-                        <CardTitle>Was it this one?</CardTitle>
+                        <CardTitle><b>Was it this one?</b></CardTitle>
                         <CardText>Airline: {result.airline}</CardText>
                         <CardText>Arrival Airport: {result.arrivalAirport}</CardText>
                         <CardText>Arrival Time:{result.arrivalScheduledTime}</CardText>
@@ -64,20 +65,33 @@ const FlightSearch = (props) => {
 
     return(
         <div>
+            <h1>Find a Flight</h1>
+            <p>If you dont have a flight but would like to test this feature use the following: ABE, Allegiant Air, 1/30/2020, 10:45am</p>
+            <Container>
             <Form onSubmit={searchFlights}>
-                <Label>Departure Airport code</Label>
-                <Input onChange={e => setCode(e.target.value)}></Input>
-                <Label>Airline Name</Label>
-                <Input onChange={e => setName(e.target.value)}></Input>
-                <Label>Departure Date</Label>
-                <Input type="date" onChange={e => setDate(e.target.value)}></Input>
-                <Label>Departure Time</Label>
-                <Input type="time" onChange={e => setTime(e.target.value)}></Input>
+                <Row>
+                    <Label>Departure Airport code</Label>
+                    <Input onChange={e => setCode(e.target.value)}></Input>
+                </Row>
+                <Row>
+                    <Label>Airline Name</Label>
+                    <Input onChange={e => setName(e.target.value)}></Input>
+                </Row>
+                <Row>
+                    <Label>Departure Date</Label>
+                    <Input type="date" onChange={e => setDate(e.target.value)}></Input>
+                </Row>
+                <Row>
+                    <Label>Departure Time</Label>
+                    <Input type="time" onChange={e => setTime(e.target.value)}></Input>
+                </Row>
+                <br></br>
                 <Button type="submit">search</Button>
             </Form>
-            <div>
+            </Container>
+            <Container>
                 {dataDisplay()}
-            </div>
+            </Container>
             {createToggle ? <FlightTransferModal flightModalData={flightModalData} createOff={createOff} token={props.token}/> : <div></div>}
         </div>
     )

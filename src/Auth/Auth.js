@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
+import './Auth.css';
 
 const Auth = (props) => {
 

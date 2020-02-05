@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Form, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Button, Form, Label, Input, Modal, ModalHeader, ModalBody, Row, Col} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import APIURL from '../../helpers/environment';
 
@@ -28,8 +28,10 @@ const RatingEdit = (props) => {
             <Form onSubmit={RatingUpdate}>
                     <Label>Airline</Label>
                     <Input onChange={e => setEditAirline(e.target.value)} value={editAirline}/>
-                    <Label>Rating</Label><StarRatingComponent name="rate4" starCount={5} value={editRating} onStarClick={e => setEditRating(e)}/>
-                    <br></br>
+                    <Label>Rating</Label>
+                    <Col style={{padding: '0px'}}>
+                    <StarRatingComponent name="rate4" starCount={5} value={editRating} onStarClick={e => setEditRating(e)}/>
+                    </Col>
                     <Label>Date</Label>
                     <Input type="date" onChange={e => setEditDate(e.target.value)} value={editDate}/>
                     <Label>Reason</Label>

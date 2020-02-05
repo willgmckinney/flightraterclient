@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Input, Label, Button, Container, Row} from 'reactstrap';
+import {Form, Input, Label, Button, Container, Row, Col} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import APIURL from '../../helpers/environment';
 
@@ -35,17 +35,25 @@ const RatingCreate = (props) => {
         <Container>
                <Form onSubmit={submitForm}>
                     <h1>Rate Your Experience</h1>
-                    <Row xs='6'>
+                    <br/>
+                    <Row>
                     <Label>Airline</Label>
                     <Input onChange={e => setAirline(e.target.value)} value={airline}/>
-                    <Label>Rating</Label>
-                    {/* <Input onChange={e => setRating(e.target.value)} value={rating}/> */}
-                    <StarRatingComponent name="rate1" starCount={5} value={rating} onStarClick={e => setRating(e)}/>
+                    </Row>
+                    <Row>
+                        <Label>Rating</Label>
+                    </Row>
+                    <Row>
+                        <StarRatingComponent name="rate1" starCount={5} value={rating} onStarClick={e => setRating(e)}/>
+                    </Row>
+                    <Row>
                     <Label>Date</Label>
                     <Input type="date" onChange={e => setDate(e.target.value)} value={date}/>
                     </Row>
+                    <Row>
                     <Label>Reason</Label>
                     <Input onChange={e => setReason(e.target.value)} value={reason}/>
+                    </Row>
                     <br/>
                     <Button type="submit">Rate It!</Button>
                 </Form>
